@@ -1,4 +1,4 @@
-﻿namespace CSharp
+﻿namespace Amazon
 {
     public class Customer
     {

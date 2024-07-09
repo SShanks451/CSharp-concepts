@@ -14,7 +14,13 @@
             _value = value;
         }
 
-        public bool HasValue { get { return _value != null; } }
+        public bool HasValue
+        {
+            get
+            {
+                return _value != null;
+            }
+        }
 
         public T GetValueOrDefault()
         {

@@ -20,11 +20,11 @@ namespace CSharp
             */
 
             var number = new Nullable<int>(5);
-            Console.WriteLine("Has value ?" + number.HasValue);
+            Console.WriteLine("Has value ? " + number.HasValue);
             Console.WriteLine("Value: " + number.GetValueOrDefault());
 
             var num = new Nullable<int>();
-            Console.WriteLine("Has value ?" + num.HasValue);
+            Console.WriteLine("Has value ? " + num.HasValue);
             Console.WriteLine("Value: " + num.GetValueOrDefault());
 
         }

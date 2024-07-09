@@ -1,12 +1,10 @@
 ﻿namespace CSharp
 {
-
-
-    // where T : IComparable
-    // where T : Product
-    // where T : struct
-    // where T : class
-    // where T : new()
+    // where T : IComparable  ----> Interface
+    // where T : Product      ----> Class
+    // where T : struct       -----> Value type
+    // where T : class        -----> reference type
+    // where T : new()        ------> default constructor
     public class Utilities<T> where T : IComparable, new()
     {
         public int Max(int a, int b)

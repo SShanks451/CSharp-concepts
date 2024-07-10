@@ -10,15 +10,19 @@
 
             var methodInfo = obj.GetType().GetMethod("GetHashCode");
             methodInfo.Invoke(null, null);
+            */
 
+            // dynamic => data type is resolved at run time
+
+            /*
             dynamic excelObject = "Mosh";
             excelObject.Optimize();
             */
 
             /*
             dynamic name = "Mosh";
-            // name = 10;
-            name++;
+            name = 10;
+            // name++;
             */
 
             /*
@@ -27,9 +31,11 @@
             var c = a + b;
             */
 
+            /*
             int i = 5;
             dynamic d = i;
             long l = d;
+            */
 
         }
     }

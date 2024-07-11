@@ -39,6 +39,5 @@ namespace SpecFlow_Step_Argument_Transformation.StepDefinitions
             Console.WriteLine("The value of Menu1 is {0} and the value of Menu2 is {1}", menu1, menu2);
         }
 
-
     }
 }

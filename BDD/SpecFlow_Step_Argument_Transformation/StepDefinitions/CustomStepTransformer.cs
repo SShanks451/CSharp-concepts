@@ -10,7 +10,7 @@ namespace SpecFlow_Step_Argument_Transformation.StepDefinitions
     public class CustomStepTransformer
     {
         [StepArgumentTransformation(@"(\d+) days from current date")]
-        public DateTime DayAdderTransform(int days)
+        public DateTime DayAdderTransformer(int days)
         {
            return DateTime.Today.AddDays(days);
 

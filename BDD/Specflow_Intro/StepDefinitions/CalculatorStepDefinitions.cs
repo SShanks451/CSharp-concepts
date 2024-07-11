@@ -7,10 +7,12 @@ namespace SpecFlow_Intro.StepDefinitions
     public sealed class CalculatorStepDefinitions
     {
         public readonly EmployeeDetails employee;
+        private readonly ScenarioContext _scenarioContext;
 
-        public CalculatorStepDefinitions(EmployeeDetails emp)
+        public CalculatorStepDefinitions(EmployeeDetails emp, ScenarioContext scenarioContext)
         {
             this.employee = emp;
+            this._scenarioContext = scenarioContext;
         }
 
 
@@ -53,6 +55,12 @@ namespace SpecFlow_Intro.StepDefinitions
         public void WhenIFillAllTheMandatoryDetailsInForm(Table table)
         {
             /*
+            If table had a single row 
+
+            var details = table.CreateInstance<EmployeeDetails>();
+            */
+
+            /*
             var details = table.CreateSet<EmployeeDetails>();
 
             foreach (EmployeeDetails emp in details)
@@ -70,8 +78,9 @@ namespace SpecFlow_Intro.StepDefinitions
 
             /*
             // Work with Dynamic Assist
-            var details = table.CreateDynamicSet();
 
+            var details = table.CreateDynamicSet();
+            
             // Iterate 
             foreach (var emp in details)
             {
@@ -85,6 +94,7 @@ namespace SpecFlow_Intro.StepDefinitions
             */
 
             //-----------------------------------------------------------------------------------------
+
 
             var data = table.CreateDynamicSet();
             foreach (var item in data)
@@ -104,8 +114,8 @@ namespace SpecFlow_Intro.StepDefinitions
             Console.WriteLine("Age: " + age);
             Console.WriteLine("Phone: " + phone);
 
-            ScenarioContext.Current["InfoForNextStep"] = "Step1 Passed";
-            Console.WriteLine(ScenarioContext.Current["InfoForNextStep"].ToString());
+            _scenarioContext["InfoForNextStep"] = "Step1 Passed";
+            Console.WriteLine(_scenarioContext["InfoForNextStep"].ToString());
 
             List<EmployeeDetails> empDetails = new List<EmployeeDetails>()
             {
@@ -133,10 +143,10 @@ namespace SpecFlow_Intro.StepDefinitions
             };
 
             // Save the value in ScenarioContext
-            ScenarioContext.Current.Add("EmpDetails", empDetails);
+            _scenarioContext.Add("EmpDetails", empDetails);
 
             // Get the value out from Scenario Context
-            var emplist = ScenarioContext.Current.Get<IEnumerable<EmployeeDetails>>("EmpDetails");
+            var emplist = _scenarioContext.Get<IEnumerable<EmployeeDetails>>("EmpDetails");
             foreach (EmployeeDetails emp in emplist)
             {
                 Console.WriteLine("The Employee name is " + emp.Name);
@@ -145,10 +155,11 @@ namespace SpecFlow_Intro.StepDefinitions
                 Console.WriteLine("The Employee phone is " + emp.Phone);
                 Console.WriteLine("\n");
             }
+        
 
-            Console.WriteLine(ScenarioContext.Current.ScenarioInfo.Title);
-            Console.WriteLine(ScenarioContext.Current.Count);
-            Console.WriteLine(ScenarioContext.Current.CurrentScenarioBlock);
+            Console.WriteLine(_scenarioContext.ScenarioInfo.Title);
+            Console.WriteLine(_scenarioContext.Count);
+            Console.WriteLine(_scenarioContext.CurrentScenarioBlock);
         }
 
     }

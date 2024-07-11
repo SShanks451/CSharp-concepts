@@ -7,14 +7,8 @@ namespace SpecFlow_Intro
     {
         // For additional details on SpecFlow hooks see http://go.specflow.org/doc-hooks
 
-        [BeforeFeature]
-        public static void BeforeFeature()
-        {
-            Console.WriteLine("calling before feature");
-        }
-
         [BeforeScenario]
-        public void BeforeScenarioWithTag()
+        public static void BeforeScenario()
         {
             Console.WriteLine("calling before scenario");
         }

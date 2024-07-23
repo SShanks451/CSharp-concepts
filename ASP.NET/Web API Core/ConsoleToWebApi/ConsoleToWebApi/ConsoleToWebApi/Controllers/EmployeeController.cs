@@ -1,4 +1,5 @@
 ﻿using ConsoleToWebApi.Models;
+using ConsoleToWebApi.Repository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -42,6 +43,13 @@ namespace ConsoleToWebApi.Controllers
             }
 
             return new EmployeeModel() { Id = 2, Name = "Employee 2 " };
+        }
+
+        [HttpGet("name")]
+        public IActionResult GetName([FromServices]IProductRepository _productRepository)
+        {
+            var name = _productRepository.GetName();
+            return Ok(name);
         }
     }
 }
